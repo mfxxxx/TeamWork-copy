@@ -1,0 +1,18 @@
+@import "./../../styles/variables";
+.header {
+  margin: 10px auto 20px;
+  padding: 30px 0;
+  background-color: $accent-color;
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    a {
+      transform: all 0.3s ease;
+      &:hover {
+        font-weight: 600;
+      }
+    }
+  }
+}

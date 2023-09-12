@@ -1,0 +1,15 @@
+{
+  "users": [
+    {
+      "email": "ksenia@gmail.com",
+      "password": "$2a$10$vAqtnv7wjrN.3pKNlXST8OawWftfCqkE2KooeY8N2.3Q.hp0h2hvi",
+      "login": "Ksenia",
+      "tel": "+79536565678",
+      "orders": [],
+      "id": 1
+    }
+  ],
+  "goods": [
+    {}
+  ]
+}

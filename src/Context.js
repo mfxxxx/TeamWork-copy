@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import db from 'db.json'
 export const CustomContext = createContext();
 
 export const Context = (props) => {
@@ -61,6 +62,14 @@ export const Context = (props) => {
       login: "",
     });
   };
+  
+  const updateUserRole = (id, role) => {
+    // Найnти пользователя по id и обновите его роль
+    const user = db.users.find((user) => user.id === id);
+    if (user) {
+      user.role = role;
+    }
+  };
 
   const value = {
     count,
@@ -72,6 +81,7 @@ export const Context = (props) => {
     loginUser,
     error,
     setError,
+    updateUserRole
   };
 
   return (

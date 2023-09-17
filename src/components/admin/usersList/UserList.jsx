@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-
+import { CustomContext } from './../../../Context'
 import db from 'db.json'
 import st from './UserList.module.scss'
 
@@ -7,9 +7,10 @@ const UserList = () => {
   const allUsers = db.users
   const [editingUserId, setEditingUserId] = useState(null)
 
+  const { updateUserRole } = useContext(CustomContext)
+
   const saveRole = (id, role) => {
-    
-    // db.updateUserRole(id, role);
+    updateUserRole(id, role)
     setEditingUserId(null)
   }
 
@@ -52,19 +53,6 @@ const UserList = () => {
             )
           })}
         </tbody>
-        {/* <tbody>
-          {allUsers.map((user) => {
-            const { id, email, login, tel, role } = user
-            return (
-              <tr key={id}>
-                <td>{login}</td>
-                <td>{email}</td>
-                <td>{tel}</td>
-                <td>{role}</td>
-              </tr>
-            )
-          })}
-        </tbody> */}
       </table>
     </>
   )

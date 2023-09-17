@@ -1,3 +1,35 @@
+.login {
+  margin: 100px auto;
+  width: 100%;
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  &_inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    input {
+      padding: 10px 20px;
+    }
+  }
+  button {
+    display: block;
+    background-color: green;
+    padding: 10px 20px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+  &_link {
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+  }
+}
+
 form {
   a {
     color: red;

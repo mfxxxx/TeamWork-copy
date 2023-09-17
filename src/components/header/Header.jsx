@@ -16,6 +16,14 @@ const Header = () => {
           <li>
             <NavLink to="/goods">Товары</NavLink>
           </li>
+          {user && user.role === 'admin' ? (
+            <li>
+              <NavLink to="/admin">Панель админа</NavLink>
+            </li>
+          ) : (
+            ''
+          )}
+
           {user && user.login && user.login.length ? (
             <li>
               <NavLink to="/" onClick={() => logOutUser()}>

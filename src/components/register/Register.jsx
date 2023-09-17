@@ -1,11 +1,12 @@
 import React, { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
+import InputMask from 'react-input-mask'
 import { CustomContext } from '../../Context'
 
 import st from './Register.module.scss'
 const Register = () => {
-  const { register, handleSubmit, formState, reset, watch } = useForm();
+  const { register, handleSubmit, formState, reset, watch } = useForm()
 
   const { registerUser } = useContext(CustomContext)
 
@@ -13,7 +14,6 @@ const Register = () => {
     <>
       <section className={st.register}>
         <div className="container">
-          <div className={st.register_wrapper}>
             <form onSubmit={handleSubmit(registerUser)}>
               <h2>Регистрация</h2>
               <div className={st.register_inputs}>
@@ -27,7 +27,8 @@ const Register = () => {
                   type="email"
                   placeholder="Введите email"
                 />
-                <input
+                <InputMask
+                  mask="+7 (999) 999-99-99"
                   {...register('tel')}
                   type="tel"
                   placeholder="Введите телефон"
@@ -44,7 +45,7 @@ const Register = () => {
                 <Link to="/login"> Перейти</Link>
               </div>
             </form>
-          </div>
+   
         </div>
       </section>
     </>

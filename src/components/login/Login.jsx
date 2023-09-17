@@ -6,7 +6,7 @@ import './../../styles/style.scss'
 import st from './Login.module.scss'
 
 const Login = () => {
-  const { register, handleSubmit, formState, reset, watch } = useForm()
+  const { register, handleSubmit} = useForm()
   const { loginUser, error } = useContext(CustomContext)
 
   return (
@@ -22,7 +22,7 @@ const Login = () => {
                   type="email"
                   placeholder="Введите свой email"
                 />
-                <input
+                <input 
                   {...register('password')}
                   type="password"
                   placeholder="Введите пароль"

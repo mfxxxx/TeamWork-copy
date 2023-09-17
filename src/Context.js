@@ -8,21 +8,26 @@ export const Context = (props) => {
   const [user, setUser] = useState({
     login: "",
   });
+
   const navigate = useNavigate();
   const [error, setError] = useState(false);
-
 
   useEffect(() => {
     setUser(JSON.parse(localStorage.getItem("user")));
   }, []);
 
   const registerUser = (data) => {
+    const role = data.email === "adminsportshop@gmail.com" ? "admin" : "user";
     axios
-      .post("http://localhost:3002/register", { ...data, orders: [] })
-      .then((res) => {
-        localStorage.setItem("user", JSON.stringify(res.data.user));
-        setUser(res.data.user);
-        navigate("/");
+      .post("http://localhost:3002/register", { ...data, orders: [], role })
+      .then(({ data }) => {
+        localStorage.setItem("user", JSON.stringify(data.user));
+        setUser(data.user);
+        if (data.user.role === "admin") {
+          navigate("/admin");
+        } else {
+          navigate("/");
+        }
       })
       .catch((error) => {
         console.error(error);
@@ -32,10 +37,14 @@ export const Context = (props) => {
   const loginUser = (data) => {
     axios
       .post("http://localhost:3002/login", data)
-      .then((res) => {
-        localStorage.setItem("user", JSON.stringify(res.data.user));
-        setUser(res.data.user);
-        navigate("/");
+      .then(({ data }) => {
+        localStorage.setItem("user", JSON.stringify({ ...data.user }));
+        setUser({ ...data.user });
+        if (data.user.role === "admin") {
+          navigate("/admin");
+        } else {
+          navigate("/");
+        }
       })
       .catch((error) => {
         if (error.response && error.response.status === 400) {

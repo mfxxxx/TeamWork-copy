@@ -1,15 +1,32 @@
 {
   "users": [
     {
-      "email": "ksenia@gmail.com",
-      "password": "$2a$10$vAqtnv7wjrN.3pKNlXST8OawWftfCqkE2KooeY8N2.3Q.hp0h2hvi",
-      "login": "Ksenia",
-      "tel": "+79536565678",
+      "email": "vara@gmail.com",
+      "password": "$2a$10$22AeSZKMJG19XV4Vf.MVnOuNQ7.MwmDDFYsTe16GIFCzZ9oKqhGEy",
+      "login": "vera",
+      "tel": "+7 (953) 656-33-48",
       "orders": [],
+      "role": "user",
       "id": 1
+    },
+    {
+      "email": "kseniakap777@mail.ru",
+      "password": "$2a$10$8AdDbXiqtBNZCq.DmhqR9ubIPDrlXnjb6IBfJ0Td3UdSZYurFfm32",
+      "login": "kseniakap",
+      "tel": "+7 (999) 999-99-99",
+      "orders": [],
+      "role": "user",
+      "id": 2
+    },
+    {
+      "email": "adminsportshop@gmail.com",
+      "password": "$2a$10$WDIhSLH61sQfVFU7LSAY7uXrHJ2.Jq6pAMRgr6rxKZ4io13ASrpgK",
+      "login": "adminsportshop",
+      "tel": "+7 (179) 543-45-22",
+      "orders": [],
+      "role": "admin",
+      "id": 3
     }
   ],
-  "goods": [
-    {}
-  ]
+  "goods": []
 }

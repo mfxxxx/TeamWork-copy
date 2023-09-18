@@ -1,0 +1,43 @@
+.user {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+.title {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.goodsTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 100px;
+  td,
+  th {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+  }
+  th {
+    text-align: center;
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+}
+.column {
+  width: 100px;
+  &_name,
+  &_descr,
+  &_category {
+    text-align: center !important;
+  }
+  &_img {
+    img {
+      display: block;
+      width: 90%;
+      height: 90%;
+      object-fit: contain;
+      margin: 0 auto !important;
+    }
+  }
+}

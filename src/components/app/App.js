@@ -10,6 +10,7 @@ import {
   GoodsPage,
   AccountPage,
   AdminPage,
+  SellerPage,
   Page404,
 } from "../../pages";
 import "./../../styles/style.scss";
@@ -17,8 +18,8 @@ import "./../../styles/style.scss";
 function App() {
   return (
     <div className="App">
+      <Header />
       <div className="container">
-        <Header />
         <div className="content">
           <Routes>
             <Route path="/" element={<MainPage />} />
@@ -26,12 +27,12 @@ function App() {
             <Route path="/login" element={<AccountPage />} />
             <Route path="/register" element={<AccountPage />} />
             <Route path="/admin" element={<AdminPage />} />
+            <Route path="/seller" element={<SellerPage />} />
             <Route path="*" element={<Page404 />} />
           </Routes>
         </div>
-
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 }

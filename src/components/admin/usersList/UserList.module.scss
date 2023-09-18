@@ -1,6 +1,22 @@
+@import "./../../../styles/variables";
+
+.userlist {
+  position: relative;
+}
+.user{
+  display: flex;
+  gap: 10px;
+}
 .title {
   text-align: center;
   margin-bottom: 10px;
+}
+.wrapper {
+  height: 365px;
+  overflow: auto;
+  width: 100%;
+  margin-bottom: 30px;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 .userTable {
   width: 100%;
@@ -14,5 +30,45 @@
   th {
     background-color: #f2f2f2;
     font-weight: bold;
+  }
+}
+.btn {
+  padding: 10px 20px;
+  background-color: $accent-color;
+  border-radius: 10px;
+  transition: $transition;
+  cursor: pointer;
+  &:hover {
+    background-color: $btn-hover;
+  }
+}
+.modal {
+  position: absolute;
+  padding: 30px 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: $accent-color;
+  border-radius: 10px;
+  height: 170px;
+  width: 500px;
+  font-size: 20px;
+  text-align: center;
+  p {
+    margin-bottom: 20px;
+  }
+  .btns {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+  }
+  button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: $transition;
+    cursor: pointer;
+    &:hover {
+      background-color: $btn-hover;
+    }
   }
 }

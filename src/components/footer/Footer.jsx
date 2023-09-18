@@ -4,7 +4,9 @@ import st from './Footer.module.scss'
 const Footer = () => {
   return (
     <footer>
-      <div className="container"></div>
+      <div className="container">
+        footer
+      </div>
     </footer>
   )
 }

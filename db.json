@@ -10,12 +10,12 @@
       "id": 3
     },
     {
-      "email": "vera@gmail.com",
+      "email": "seller@gmail.com",
       "password": "$2a$10$22AeSZKMJG19XV4Vf.MVnOuNQ7.MwmDDFYsTe16GIFCzZ9oKqhGEy",
-      "login": "vera",
+      "login": "seller",
       "tel": "+7 (953) 656-33-48",
       "orders": [],
-      "role": "seller",
+      "role": "admin",
       "id": 1
     },
     {
@@ -24,7 +24,7 @@
       "login": "kseniakap",
       "tel": "+7 (999) 999-99-99",
       "orders": [],
-      "role": "admin",
+      "role": "user",
       "id": 2
     },
     {
@@ -33,7 +33,7 @@
       "login": "kap",
       "tel": "+7 (999) 999-99-99",
       "orders": [],
-      "role": "user",
+      "role": "seller",
       "id": 4
     },
     {
@@ -42,7 +42,7 @@
       "login": "gggg",
       "tel": "+7 (895) 344-45-22",
       "orders": [],
-      "role": "user",
+      "role": "admin",
       "id": 5
     }
   ],

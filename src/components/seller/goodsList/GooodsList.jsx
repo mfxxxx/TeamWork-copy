@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { FaUserLarge } from 'react-icons/fa6'
 import { CustomContext } from '../../../Context'
+import AddNewItem from '../addNewItem/AddNewItem'
 import axios from 'axios'
 import st from './GooodsList.module.scss'
 
@@ -9,9 +10,6 @@ const GooodsList = () => {
   const [allGoods, setAllGoods] = useState([])
   const [editableGoods, setEditableGoods] = useState([...allGoods])
   const [editMode, setEditMode] = useState({})
-  //состояние для отслеживания режима редактирования для каждой строк
-  const [addingNewItem, setAddingNewItem] = useState(false)
-  //добавление новой карточки товара
 
   //получение данных о всем товаре из db.json
   useEffect(() => {
@@ -68,14 +66,26 @@ const GooodsList = () => {
       }
       return item
     })
-
     setEditableGoods(updatedGoods)
     sendUpdatedDataToServer(id, updatedData)
-
     setEditMode((prevEditMode) => ({
       ...prevEditMode,
       [id]: false,
     }))
+  }
+
+  const handleDelete = (id) => {
+    axios
+      .delete(`http://localhost:3002/goods/${id}`)
+      .then(() => {
+        console.log('Товар удален успешно')
+        // Обновите список товаров, удалив товар с указанным ID
+        const updatedGoods = editableGoods.filter((item) => item.id !== id)
+        setEditableGoods(updatedGoods)
+      })
+      .catch((error) => {
+        console.error('Ошибка удаления товара:', error)
+      })
   }
 
   return (
@@ -85,7 +95,12 @@ const GooodsList = () => {
         {user.email}
       </div>
       <h2 className={st.title}>Весь список товаров</h2>
-      <button className={st.btn}>Добавить новый товар</button>
+
+      <AddNewItem
+        editableGoods={editableGoods}
+        setEditableGoods={setEditableGoods}
+      />
+
       <div className={st.wrapper}>
         <table className={st.goodsTable}>
           <thead>
@@ -159,20 +174,6 @@ const GooodsList = () => {
                       category
                     )}
                   </td>
-                  {/* <td className={st.column_img}>
-                    {isEditMode ? (
-                      <div
-                        className={st.dropzone}
-                        onDragOver={(e) => e.preventDefault()}
-                        onDrop={(e) => handleImageDrop(e, id)}
-                      >
-                        Перетащите изображение сюда или нажмите, чтобы выбрать
-                        файл
-                      </div>
-                    ) : (
-                      <img src={img} alt="" />
-                    )}
-                  </td> */}
                   <td className={st.column_img}>
                     {isEditMode ? (
                       <input
@@ -190,12 +191,20 @@ const GooodsList = () => {
                         Сохранить
                       </button>
                     ) : (
-                      <button
-                        className={st.btn}
-                        onClick={() => toggleEditMode(id)}
-                      >
-                        Редактировать
-                      </button>
+                      <div className={st.btns}>
+                        <button
+                          className={st.btn}
+                          onClick={() => toggleEditMode(id)}
+                        >
+                          Редактировать
+                        </button>
+                        <button
+                          className={`${st.btn} ${st.btn_delete}`}
+                          onClick={() => handleDelete(id)}
+                        >
+                          Удалить товар
+                        </button>
+                      </div>
                     )}
                   </td>
                 </tr>

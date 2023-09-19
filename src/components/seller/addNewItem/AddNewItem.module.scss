@@ -1,0 +1,47 @@
+@import "./../../../styles/variables";
+
+.wrapper {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  &_field {
+    display: flex;
+    gap: 5px;
+  }
+}
+.btn {
+  padding: 10px 20px;
+  background-color: $main-color;
+  border-radius: 10px;
+  transition: $transition;
+  cursor: pointer;
+  &_save {
+    height: 45px;
+  }
+  &:hover {
+    background-color: $btn-hover;
+  }
+}
+.btn[disabled] {
+  cursor: default;
+  &:hover {
+    background-color: $main-color;
+  }
+}
+.column {
+  padding: 5px 10px;
+  &_descr {
+    width: 300px;
+  }
+  &_price {
+    width: 80px;
+  }
+
+  &_category {
+    width: 180px;
+  }
+  &_img {
+    width: 150px;
+  }
+}

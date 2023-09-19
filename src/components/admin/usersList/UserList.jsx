@@ -153,7 +153,7 @@ const ConfirmModal = ({ onConfirm, onCancel, allUsers }) => {
   return (
     <div className={st.modal}>
       <div className={st.modalContent}>
-        <p>Вы уверены, что хотите установить {adminCount}-го вдминистратора?</p>
+        <p>Вы уверены, что хотите установить {adminCount}-го администратора?</p>
         <p>В таком случае он получит доступ ко всему</p>
         <div className={st.btns}>
           <button onClick={onConfirm}>Да</button>

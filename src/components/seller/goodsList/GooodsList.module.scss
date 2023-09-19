@@ -69,6 +69,11 @@
     }
   }
 }
+.btns{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 .btn {
   padding: 10px 20px;
   background-color: $main-color;
@@ -77,5 +82,8 @@
   cursor: pointer;
   &:hover {
     background-color: $btn-hover;
+  }
+  &_delete{
+    background-color:	#fff
   }
 }

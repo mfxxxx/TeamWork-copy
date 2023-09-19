@@ -1,3 +1,9 @@
+@import "./../../../styles/variables";
+
+.goodsList {
+  margin-bottom: 80px;
+}
+
 .user {
   display: flex;
   gap: 10px;
@@ -8,10 +14,15 @@
   font-size: 20px;
   margin-bottom: 20px;
 }
+.wrapper {
+  height: 630px;
+  overflow: auto;
+  margin-top: 20px;
+}
 .goodsTable {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 100px;
+  margin-bottom: 10px;
   td,
   th {
     border: 1px solid black;
@@ -28,8 +39,25 @@
   width: 100px;
   &_name,
   &_descr,
-  &_category {
+  &_category,
+  &_price {
     text-align: center !important;
+  }
+  &_descr {
+    textarea {
+      width: 300px;
+      min-height: 170px;
+    }
+  }
+  &_price {
+    input {
+      width: 60px;
+    }
+  }
+  &_category {
+    select {
+      width: 120px;
+    }
   }
   &_img {
     img {
@@ -39,5 +67,15 @@
       object-fit: contain;
       margin: 0 auto !important;
     }
+  }
+}
+.btn {
+  padding: 10px 20px;
+  background-color: $main-color;
+  border-radius: 10px;
+  transition: $transition;
+  cursor: pointer;
+  &:hover {
+    background-color: $btn-hover;
   }
 }

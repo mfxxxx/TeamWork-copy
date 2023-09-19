@@ -24,7 +24,8 @@ const Header = () => {
             ) : (
               ''
             )}
-            {user && user.role === 'seller' ? (
+            {(user && user.role === 'seller') ||
+            (user && user.role === 'admin') ? (
               <li>
                 <NavLink to="/seller">Панель продавца</NavLink>
               </li>

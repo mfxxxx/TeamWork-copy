@@ -8,11 +8,11 @@ const Service = () => {
   };
 
   const _transformItems = (item) => {
-    const { id, image, name, description, price, category } = item;
+    const { id, img, name, description, price, category } = item;
 
     return {
       id: id,
-      image: image,
+      img: img,
       name: name,
       description: description
         ? `${item.description.slice(0, 130)}...`

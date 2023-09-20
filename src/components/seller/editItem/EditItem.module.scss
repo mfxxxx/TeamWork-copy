@@ -1,0 +1,11 @@
+@import "./../../../styles/variables";
+.btn {
+  padding: 10px 20px;
+  background-color: $main-color;
+  border-radius: 10px;
+  transition: $transition;
+  cursor: pointer;
+  &:hover {
+    background-color: $btn-hover;
+  }
+}

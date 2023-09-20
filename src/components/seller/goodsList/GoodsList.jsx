@@ -2,8 +2,11 @@ import React, { useContext, useEffect, useState } from 'react'
 import { FaUserLarge } from 'react-icons/fa6'
 import { CustomContext } from '../../../Context'
 import AddNewItem from '../addNewItem/AddNewItem'
+import SaveEdit from '../saveEdit/SaveEdit'
+import EditItem from '../editItem/EditItem'
+import DeleteItem from '../deleteItem/DeleteItem'
 import axios from 'axios'
-import st from './GooodsList.module.scss'
+import st from './GoodsList.module.scss'
 
 const GooodsList = () => {
   const { user } = useContext(CustomContext)
@@ -38,56 +41,6 @@ const GooodsList = () => {
     setEditableGoods(updatedGoods)
   }
 
-  // функция для включения/выключения режима редактирования
-  const toggleEditMode = (id) => {
-    setEditMode((prevEditMode) => ({
-      ...prevEditMode,
-      [id]: !prevEditMode[id],
-    }))
-  }
-
-  const sendUpdatedDataToServer = (id, updatedData) => {
-    axios
-      .put(`http://localhost:3002/goods/${id}`, updatedData) // Assuming you use PUT for updates
-      .then(() => {
-        console.log('Data saved successfully')
-      })
-      .catch((error) => {
-        console.error('Error saving data:', error)
-      })
-  }
-
-  // Функция для обработки сохранения изменений при нажатии кнопки "Сохранить"
-  const handleSave = (id) => {
-    const updatedData = editableGoods.find((editedItem) => editedItem.id === id)
-    const updatedGoods = editableGoods.map((item) => {
-      if (item.id === id) {
-        return updatedData || item
-      }
-      return item
-    })
-    setEditableGoods(updatedGoods)
-    sendUpdatedDataToServer(id, updatedData)
-    setEditMode((prevEditMode) => ({
-      ...prevEditMode,
-      [id]: false,
-    }))
-  }
-
-  const handleDelete = (id) => {
-    axios
-      .delete(`http://localhost:3002/goods/${id}`)
-      .then(() => {
-        console.log('Товар удален успешно')
-        // Обновите список товаров, удалив товар с указанным ID
-        const updatedGoods = editableGoods.filter((item) => item.id !== id)
-        setEditableGoods(updatedGoods)
-      })
-      .catch((error) => {
-        console.error('Ошибка удаления товара:', error)
-      })
-  }
-
   return (
     <section className={st.goodsList}>
       <div className={st.user}>
@@ -95,12 +48,10 @@ const GooodsList = () => {
         {user.email}
       </div>
       <h2 className={st.title}>Весь список товаров</h2>
-
       <AddNewItem
         editableGoods={editableGoods}
         setEditableGoods={setEditableGoods}
       />
-
       <div className={st.wrapper}>
         <table className={st.goodsTable}>
           <thead>
@@ -187,23 +138,20 @@ const GooodsList = () => {
                   </td>
                   <td>
                     {isEditMode ? (
-                      <button className={st.btn} onClick={() => handleSave(id)}>
-                        Сохранить
-                      </button>
+                      <SaveEdit
+                        editableGoods={editableGoods}
+                        setEditableGoods={setEditableGoods}
+                        setEditMode={setEditMode}
+                        id={id}
+                      />
                     ) : (
                       <div className={st.btns}>
-                        <button
-                          className={st.btn}
-                          onClick={() => toggleEditMode(id)}
-                        >
-                          Редактировать
-                        </button>
-                        <button
-                          className={`${st.btn} ${st.btn_delete}`}
-                          onClick={() => handleDelete(id)}
-                        >
-                          Удалить товар
-                        </button>
+                        <EditItem setEditMode={setEditMode} id={id} />
+                        <DeleteItem
+                          editableGoods={editableGoods}
+                          setEditableGoods={setEditableGoods}
+                          id={id}
+                        />
                       </div>
                     )}
                   </td>

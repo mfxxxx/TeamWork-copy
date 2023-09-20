@@ -2,48 +2,13 @@
   "users": [
     {
       "email": "adminsportshop@gmail.com",
-      "password": "$2a$10$WDIhSLH61sQfVFU7LSAY7uXrHJ2.Jq6pAMRgr6rxKZ4io13ASrpgK",
+      "password": "$2a$10$Zry/r5vPedKHANuRF/ZbN.0xsAyoVg6BvixjyYOJ7q6VG5biynDUC",
       "login": "adminsportshop",
-      "tel": "+7 (179) 543-45-22",
+      "tel": "+7 (999) 999-99-99",
+      "confirmPassword": "1234",
       "orders": [],
       "role": "admin",
-      "id": 3
-    },
-    {
-      "email": "seller@gmail.com",
-      "password": "$2a$10$22AeSZKMJG19XV4Vf.MVnOuNQ7.MwmDDFYsTe16GIFCzZ9oKqhGEy",
-      "login": "seller",
-      "tel": "+7 (953) 656-33-48",
-      "orders": [],
-      "role": "seller",
       "id": 1
-    },
-    {
-      "email": "kseniakap777@mail.ru",
-      "password": "$2a$10$8AdDbXiqtBNZCq.DmhqR9ubIPDrlXnjb6IBfJ0Td3UdSZYurFfm32",
-      "login": "kseniakap",
-      "tel": "+7 (999) 999-99-99",
-      "orders": [],
-      "role": "user",
-      "id": 2
-    },
-    {
-      "email": "ksenia7@mail.ru",
-      "password": "$2a$10$8AdDbXiqtBNZCq.DmhqR9ubIPDrlXnjb6IBfJ0Td3UdSZYurFfm32",
-      "login": "kap",
-      "tel": "+7 (999) 999-99-99",
-      "orders": [],
-      "role": "user",
-      "id": 4
-    },
-    {
-      "email": "ggg@mail.com",
-      "password": "$2a$10$n4Hfi9zVNmRVdutqm6YYw.cy.onLcMtgfTqlNabZ56pE6QhygogA2",
-      "login": "gggg",
-      "tel": "+7 (895) 344-45-22",
-      "orders": [],
-      "role": "admin",
-      "id": 5
     }
   ],
   "goods": [
@@ -52,14 +17,14 @@
       "name": "Шкаф Парма",
       "description": "Шкаф Парма легко решит проблему хранения множества вещей в прихожей. Модель представляет собой композицию из открытого стеллажа и закрытого шкафа для верхней одежды. В отделении за глухой дверцей расположены 2 полки – нижняя отделяет нишу для обуви, к поверхности антресольной полки крепится выдвижная штанга. ",
       "price": 20999,
-      "category": "press",
+      "category": "bed",
       "img": "https://hoff.ru/upload/iblock/ca1/ca1e024c437b60b026723f4f985dbcfc.jpg"
     },
     {
       "id": 3,
       "name": "Кровать с подъёмным механизмом Nemi 160х200 см  ",
       "description": "Nivola — кровать с большим количеством достоинств: сложное, ручной работы изголовье, высокие опоры из натурального дерева, бельевой ящик, делает ее удачным приобретением в любую спальню.Изголовье со вставкой и вертикальными строчками на высокообъёмном синтепоне: в нем много ручного труда — эксклюзивная работа по доступной цене.Изголовье, царги и изножье собираются и обтягивается вручную. Вертикальные стежки в декоре изголовья визуально увеличивают высоту потолка. Деревянные устойчивые опоры 12 см подходят для работы любого робота-пылесоса. Кровать залицована внутри спанбондом графитового цвета, надежный и прочный материал.",
-      "price": 26999,
+      "price": "26998",
       "category": "bed",
       "img": "https://hoff.ru/upload/iblock/6cc/6cc2c693fdc1c94d4c17a2e6c2055527.jpg"
     },
@@ -78,14 +43,6 @@
       "price": 3599,
       "category": "table",
       "img": "https://hoff.ru/upload/iblock/d04/d0472fb67607e8aedad5dc7b06fd1a23.jpg"
-    },
-    {
-      "name": "ььььььььь",
-      "description": "ььььььььььььььь",
-      "price": "4777",
-      "category": "bed",
-      "img": "https://img5.goodfon.com/wallpaper/nbig/0/67/kanada-ozero-bow-lake-1.jpg",
-      "id": "1695166267965"
     }
   ]
 }

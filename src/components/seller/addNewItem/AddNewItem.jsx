@@ -93,7 +93,7 @@ const AddNewItem = ({ editableGoods, setEditableGoods }) => {
               }
             >
               {/* Значения для выпадающего списка категорий */}
-              <option value="" selected disabled hidden>
+              <option value="" disabled hidden>
                 Выберите категорию
               </option>
               <option value="sofa-bed">Диван-кровать</option>

@@ -1,12 +1,12 @@
 import React from "react";
-import GooodsList from "../components/seller/goodsList/GooodsList";
+import GoodsList from "../components/seller/goodsList/GoodsList";
 import "./../styles/style.scss";
 
 const SellerPage = () => {
   return (
     <>
       <div className="container">
-        <GooodsList />
+        <GoodsList />
       </div>
     </>
   );

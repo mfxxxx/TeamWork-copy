@@ -43,16 +43,51 @@ const GoodsList = () => {
     setEditableGoods(updatedGoods)
   }
 
-  const handleImageDrop = (e) => {
+  // const handleImageDrop = (e) => {
+  //   e.preventDefault()
+  //   const file = e.dataTransfer.files[0]
+
+  //   if (file) {
+  //     const reader = new FileReader()
+  //     reader.onload = (event) => {
+  //       setDraggedImage(event.target.result)
+  //     }
+  //     reader.readAsDataURL(file)
+  //   }
+  // }
+  const handleImageDrop = (e, id) => {
     e.preventDefault()
     const file = e.dataTransfer.files[0]
 
     if (file) {
-      const reader = new FileReader()
-      reader.onload = (event) => {
-        setDraggedImage(event.target.result)
-      }
-      reader.readAsDataURL(file)
+      const formData = new FormData()
+      formData.append('image', file)
+
+      axios
+        .post(`http://localhost:3002/goods//${id}`, formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        })
+        .then((response) => {
+          // Обработка успешного сохранения изображения
+          console.log('Изображение успешно сохранено')
+          // После сохранения изображения в базе данных, вы можете получить его новый путь или идентификатор и обновить состояние товара с этим значением.
+          const newImageURL = response.data.imageURL // Зависит от вашей реализации на сервере
+          const updatedGoods = editableGoods.map((item) => {
+            if (item.id === id) {
+              return {
+                ...item,
+                img: newImageURL,
+              }
+            }
+            return item
+          })
+          setEditableGoods(updatedGoods)
+        })
+        .catch((error) => {
+          console.error('Ошибка при сохранении изображения:', error)
+        })
     }
   }
 
@@ -130,7 +165,7 @@ const GoodsList = () => {
                         }
                       >
                         {/* Значения для выпадающего списка категорий */}
-                        <option value="sofa-bed">Диван-кровать</option>
+                        <option value="t-">Диван-кровать</option>
                         <option value="press">Шкаф</option>
                         <option value="bed">Кровать</option>
                         <option value="chair">Кресло</option>
@@ -141,6 +176,21 @@ const GoodsList = () => {
                     )}
                   </td>
                   <td
+                    className={st.column_img}
+                    onDragOver={(e) => e.preventDefault()}
+                    onDrop={(e) => handleImageDrop(e, id)}
+                  >
+                    {isEditMode ? (
+                      <input
+                        type="text"
+                        value={img}
+                        onChange={(e) => handleEdit(id, 'img', e.target.value)}
+                      />
+                    ) : (
+                      <img src={img} alt="" />
+                    )}
+                  </td>
+                  {/* <td
                     className={st.column_img}
                     onDragOver={(e) => e.preventDefault()}
                     onDrop={(e) => handleImageDrop(e)}
@@ -160,18 +210,8 @@ const GoodsList = () => {
                     ) : (
                       <img src={img} alt="" />
                     )}
-                  </td>
-                  {/* <td className={st.column_img}>
-                    {isEditMode ? (
-                      <input
-                        type="text"
-                        value={img}
-                        onChange={(e) => handleEdit(id, 'img', e.target.value)}
-                      />
-                    ) : (
-                      <img src={img} alt="" />
-                    )}
                   </td> */}
+
                   <td>
                     {isEditMode ? (
                       <SaveEdit

@@ -8,11 +8,13 @@ import DeleteItem from '../deleteItem/DeleteItem'
 import axios from 'axios'
 import st from './GoodsList.module.scss'
 
-const GooodsList = () => {
+const GoodsList = () => {
   const { user } = useContext(CustomContext)
   const [allGoods, setAllGoods] = useState([])
   const [editableGoods, setEditableGoods] = useState([...allGoods])
   const [editMode, setEditMode] = useState({})
+  // состояние для хранения текущего изображения
+  const [draggedImage, setDraggedImage] = useState(null)
 
   //получение данных о всем товаре из db.json
   useEffect(() => {
@@ -39,6 +41,19 @@ const GooodsList = () => {
       return item
     })
     setEditableGoods(updatedGoods)
+  }
+
+  const handleImageDrop = (e) => {
+    e.preventDefault()
+    const file = e.dataTransfer.files[0]
+
+    if (file) {
+      const reader = new FileReader()
+      reader.onload = (event) => {
+        setDraggedImage(event.target.result)
+      }
+      reader.readAsDataURL(file)
+    }
   }
 
   return (
@@ -125,7 +140,28 @@ const GooodsList = () => {
                       category
                     )}
                   </td>
-                  <td className={st.column_img}>
+                  <td
+                    className={st.column_img}
+                    onDragOver={(e) => e.preventDefault()}
+                    onDrop={(e) => handleImageDrop(e)}
+                  >
+                    {isEditMode ? (
+                      <>
+                        <p>Добавьте ссылку или перетащите изображение</p>
+                        <input
+                          type="text"
+                          value={img}
+                          onChange={(e) =>
+                            handleEdit(id, 'img', e.target.value)
+                          }
+                        />
+                        <img src={draggedImage || img} alt="" />
+                      </>
+                    ) : (
+                      <img src={img} alt="" />
+                    )}
+                  </td>
+                  {/* <td className={st.column_img}>
                     {isEditMode ? (
                       <input
                         type="text"
@@ -135,7 +171,7 @@ const GooodsList = () => {
                     ) : (
                       <img src={img} alt="" />
                     )}
-                  </td>
+                  </td> */}
                   <td>
                     {isEditMode ? (
                       <SaveEdit
@@ -165,4 +201,4 @@ const GooodsList = () => {
   )
 }
 
-export default GooodsList
+export default GoodsList

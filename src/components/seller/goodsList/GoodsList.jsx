@@ -165,7 +165,7 @@ const GoodsList = () => {
                         }
                       >
                         {/* Значения для выпадающего списка категорий */}
-                        <option value="t-">Диван-кровать</option>
+                        <option value="sofa-bed">Диван-кровать</option>
                         <option value="press">Шкаф</option>
                         <option value="bed">Кровать</option>
                         <option value="chair">Кресло</option>

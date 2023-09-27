@@ -3,7 +3,7 @@
 .userlist {
   position: relative;
 }
-.user{
+.user {
   display: flex;
   gap: 10px;
 }
@@ -21,6 +21,7 @@
 .userTable {
   width: 100%;
   border-collapse: collapse;
+  background-color: #fff;
   td,
   th {
     border: 1px solid black;

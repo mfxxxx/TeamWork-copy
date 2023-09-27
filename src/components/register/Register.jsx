@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 import InputMask from 'react-input-mask'
 import { CustomContext } from '../../Context'
-
 import st from './Register.module.scss'
 const Register = () => {
   const { register, handleSubmit, formState, reset, watch } = useForm()
@@ -15,7 +14,6 @@ const Register = () => {
   return (
     <>
       <section className={st.register}>
-        <div className="container">
           <form onSubmit={handleSubmit(registerUser)}>
             <h2>Регистрация</h2>
             <div className={st.register_inputs}>
@@ -61,7 +59,6 @@ const Register = () => {
               <Link to="/login"> Перейти</Link>
             </div>
           </form>
-        </div>
       </section>
     </>
   )

@@ -1,0 +1,34 @@
+import { useHttp } from "../hooks/http.hook";
+const Service = () => {
+  const { loading, request, error, clearError } = useHttp();
+
+  const getAllGoods = async () => {
+    const res = await request("http://localhost:3002/goods");
+    return res.map((item) => _transformItems(item));
+  };
+
+  const _transformItems = (item) => {
+    const { id, img, name, description, price, category, size } = item;
+
+    return {
+      id: id,
+      img: img,
+      name: name,
+      description: description
+        ? `${item.description.slice(0, 130)}...`
+        : "В данный момент описание о данном товаре отсутствует",
+      price: price,
+      category: category,
+      size: size,
+    };
+  };
+
+  return {
+    loading,
+    error,
+    clearError,
+    getAllGoods,
+  };
+};
+
+export default Service;

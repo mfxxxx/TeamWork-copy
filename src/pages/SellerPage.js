@@ -5,9 +5,7 @@ import "./../styles/style.scss";
 const SellerPage = () => {
   return (
     <>
-      <div className="container">
-        <GoodsList />
-      </div>
+      <GoodsList />
     </>
   );
 };

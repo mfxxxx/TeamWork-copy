@@ -13,8 +13,6 @@ const GoodsList = () => {
   const [allGoods, setAllGoods] = useState([])
   const [editableGoods, setEditableGoods] = useState([...allGoods])
   const [editMode, setEditMode] = useState({})
-  // состояние для хранения текущего изображения
-  const [draggedImage, setDraggedImage] = useState(null)
 
   //получение данных о всем товаре из db.json
   useEffect(() => {
@@ -43,18 +41,6 @@ const GoodsList = () => {
     setEditableGoods(updatedGoods)
   }
 
-  // const handleImageDrop = (e) => {
-  //   e.preventDefault()
-  //   const file = e.dataTransfer.files[0]
-
-  //   if (file) {
-  //     const reader = new FileReader()
-  //     reader.onload = (event) => {
-  //       setDraggedImage(event.target.result)
-  //     }
-  //     reader.readAsDataURL(file)
-  //   }
-  // }
   const handleImageDrop = (e, id) => {
     e.preventDefault()
     const file = e.dataTransfer.files[0]
@@ -70,10 +56,9 @@ const GoodsList = () => {
           },
         })
         .then((response) => {
-          // Обработка успешного сохранения изображения
           console.log('Изображение успешно сохранено')
-          // После сохранения изображения в базе данных, вы можете получить его новый путь или идентификатор и обновить состояние товара с этим значением.
-          const newImageURL = response.data.imageURL // Зависит от вашей реализации на сервере
+
+          const newImageURL = response.data.imageURL
           const updatedGoods = editableGoods.map((item) => {
             if (item.id === id) {
               return {
@@ -190,27 +175,6 @@ const GoodsList = () => {
                       <img src={img} alt="" />
                     )}
                   </td>
-                  {/* <td
-                    className={st.column_img}
-                    onDragOver={(e) => e.preventDefault()}
-                    onDrop={(e) => handleImageDrop(e)}
-                  >
-                    {isEditMode ? (
-                      <>
-                        <p>Добавьте ссылку или перетащите изображение</p>
-                        <input
-                          type="text"
-                          value={img}
-                          onChange={(e) =>
-                            handleEdit(id, 'img', e.target.value)
-                          }
-                        />
-                        <img src={draggedImage || img} alt="" />
-                      </>
-                    ) : (
-                      <img src={img} alt="" />
-                    )}
-                  </td> */}
 
                   <td>
                     {isEditMode ? (

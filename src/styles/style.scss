@@ -6,6 +6,15 @@
   box-sizing: border-box;
 }
 
+.content {
+  min-height: 80vh;
+}
+.contentWithImg {
+  min-height: 80vh;
+  background: url("./../components/app/content_img.png") center (center / cover)
+    no-repeat;
+  width: 100%;
+}
 .container {
   max-width: 1280px;
   padding: 0 40px;
@@ -13,8 +22,12 @@
   margin: 0 auto;
   position: relative;
 }
-.content {
-  min-height: 80vh;
+.containerWithImg {
+  max-width: 1600px;
+  padding: 0 40px;
+  min-height: auto;
+  margin: 0 auto;
+  position: relative;
 }
 ul {
   list-style: none;

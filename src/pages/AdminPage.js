@@ -5,9 +5,7 @@ import UserList from "./../components/admin/usersList/UserList";
 const AdminPage = () => {
   return (
     <>
-      <div className="container">
         <UserList />
-      </div>
     </>
   );
 };

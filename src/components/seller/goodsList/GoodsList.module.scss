@@ -23,6 +23,7 @@
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 10px;
+  background-color: #fff;
   td,
   th {
     border: 1px solid black;
@@ -69,7 +70,7 @@
     }
   }
 }
-.btns{
+.btns {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -83,7 +84,7 @@
   &:hover {
     background-color: $btn-hover;
   }
-  &_delete{
-    background-color:	#fff
+  &_delete {
+    background-color: #fff;
   }
 }

@@ -16,11 +16,28 @@ import {
 import "./../../styles/style.scss";
 
 function App() {
+  const location = useLocation();
+  const contentClass =
+    location.pathname === "/login" ||
+    location.pathname.includes("/register") ||
+    location.pathname.includes("/404") ||
+    location.pathname.includes("/admin") ||
+    location.pathname.includes("/seller")
+      ? "contentWithImg"
+      : "content";
+  const containerClass =
+    location.pathname === "/login" ||
+    location.pathname.includes("/register") ||
+    location.pathname.includes("/404") ||
+    location.pathname.includes("/admin") ||
+    location.pathname.includes("/seller")
+      ? "containerWithImg"
+      : "container";
   return (
     <div className="App">
       <Header />
-      <div className="container">
-        <div className="content">
+      <div className={contentClass}>
+        <div className={containerClass}>
           <Routes>
             <Route path="/" element={<MainPage />} />
             <Route path="/goods" element={<GoodsPage />} />
@@ -30,6 +47,7 @@ function App() {
             <Route path="/seller" element={<SellerPage />} />
             <Route path="*" element={<Page404 />} />
           </Routes>
+    
         </div>
       </div>
       <Footer />

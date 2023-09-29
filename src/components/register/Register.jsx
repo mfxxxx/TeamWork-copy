@@ -14,6 +14,7 @@ const Register = () => {
   return (
     <>
       <section className={st.register}>
+        <div className={st.register_wrapper}>
           <form onSubmit={handleSubmit(registerUser)}>
             <h2>Регистрация</h2>
             <div className={st.register_inputs}>
@@ -59,6 +60,7 @@ const Register = () => {
               <Link to="/login"> Перейти</Link>
             </div>
           </form>
+        </div>
       </section>
     </>
   )

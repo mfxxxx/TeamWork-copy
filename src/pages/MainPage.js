@@ -1,11 +1,14 @@
 import React from "react";
 import Main from "./../components/main/Main";
-import ListOfCoods from "../components/listOfCoods/listOfCoods";
+import Header from "../components/header/Header";
+import Footer from "../components/footer/Footer";
+// Главная страница
 const MainPage = () => {
   return (
     <>
+      <Header />
       <Main />
-      <ListOfCoods />
+      <Footer />
     </>
   );
 };

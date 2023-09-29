@@ -3,7 +3,7 @@ import Service from './../services/Service'
 import ItemOfGoods from '../itemOfGoods/ItemOfGoods'
 import st from './listOfCoods.module.scss'
 
-const ListOfCoods = () => {
+const ListOfCoods = ({ categoryItems }) => {
   const [newItemLoading, setNewItemLoading] = useState(false)
   const { loading, error, getAllGoods } = Service()
   const [list, setList] = useState([])
@@ -23,6 +23,14 @@ const ListOfCoods = () => {
   }
 
   function renderItems(arr) {
+    if (categoryItems) {
+      const items = arr
+        .filter((item) => item.category === categoryItems)
+        .map((item) => {
+          return <ItemOfGoods key={item.id} item={item} />
+        })
+      return <div className={st.main}>{items}</div>
+    }
     const items = arr.map((item) => {
       return <ItemOfGoods key={item.id} item={item} />
     })

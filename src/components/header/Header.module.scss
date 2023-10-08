@@ -14,4 +14,21 @@
       }
     }
   }
+  img{
+    
+    position: relative; 
+   width: 100%;
+  }
+  h{
+    position: absolute; 
+  top: 30px; 
+  left: 0; 
+  width: 100%;
+  }
+}
+
+img{
+  padding: 36px;
+  width: 33%;
+  top: 10%;
 }

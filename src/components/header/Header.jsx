@@ -2,12 +2,17 @@ import React, { useContext } from 'react'
 import { CustomContext } from '../../Context'
 import { NavLink } from 'react-router-dom'
 import st from './Header.module.scss'
+import logo from './logo.png'
+import f from './1.png'
+import s from './2.png'
+import t from './3.png'
+
 
 const Header = () => {
   const { user, logOutUser } = useContext(CustomContext)
   return (
     <section>
-      <div className="container">{/* лого время работы и т д, */}</div>
+      <div className="container"><img src={logo} alt=""/> <h>Время работы: 10:00-22:00</h></div>
       <header className={st.header}>
         <nav>
           <ul>
@@ -46,7 +51,11 @@ const Header = () => {
           </ul>
         </nav>
       </header>
-      <div className="container">{/* 3 картинки*/}</div>
+      <div className="container">
+        <img src={f} alt=""/>
+        <img src={s} alt=""/>
+        <img src={t} alt=""/>
+      </div>
     </section>
   )
 }
